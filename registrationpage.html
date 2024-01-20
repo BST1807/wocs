@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="registrationpage.css">
+</head>
+<body>
+    <div class="login">
+        <div class="form">
+          <input class="form-input" type="name" name="name" id="name" placeholder="enter your name">
+          <input class="form-input" type="email" name="email" id="email" placeholder="enter your email">
+          <div class="input-box">
+            <input class="form-inputs" type="password" name="password" id="password" placeholder="enter your password">
+            <img src="images/eye-close.png" alt="" id="eyeicon">
+          </div>
+          
+          <select>
+            <option>Ethereum (ETH)</option>
+          </select>
+          <input class="form-input" type="number" name="quantity" id="quantity" placeholder="enter quantity" min="1">
+          <button class="btn btn-dark" id="register" onclick="myfunction()">Register</button>
+          <p>Existing User?</p>
+          <button class="btn btn-dark" id="login">Login</button>
+        </div>
+    </div>
+    <script src="register-to-login.js"></script>
+    <script src="registration.js"></script>
+    
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+    
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDuVRnuTxDhHbqJddUqwNpwhU9xl4Nd4dE",
+      authDomain: "blockchain-d6418.firebaseapp.com",
+      projectId: "blockchain-d6418",
+      storageBucket: "blockchain-d6418.appspot.com",
+      messagingSenderId: "322497998880",
+      appId: "1:322497998880:web:c9d6f596c3cad86c018c45",
+      measurementId: "G-2KQQ1R9BS4"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth();
+
+    // console.log(app);
+    document.getElementById("register").addEventListener("click", function() {
+      if((Number(document.querySelector('#quantity').value))>0){
+        var email =  document.getElementById("email").value;
+		  var password = document.getElementById("password").value;
+		  //For new registration
+		  createUserWithEmailAndPassword(auth, email, password)
+		  .then((userCredential) => {
+		    // Signed in 
+		    const user = userCredential.user;
+		    console.log(user);
+		    alert("Registration successfully!!");
+            window.location='loginpage.html';
+		    // ...
+		  })
+		  .catch((error) => {
+		    const errorCode = error.code;
+		    const errorMessage = error.message;
+		    // ..
+		    console.log(errorMessage);
+		    alert(error);
+		  });		 
+      }
+		  else{
+        alert('Enterd amount should be greater than or equal to 1')
+      };  
+	  });
+  </script>
+
+</html>

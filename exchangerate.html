@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto Prices</title>
+  <link rel="stylesheet" href="exchangerate.css">
+</head>
+<body>
+
+  <h1>Crypto Prices</h1>
+
+  <div class="crypto-container">
+    <div class="crypto-card" id="ethereum-card">
+      <h2>Ethereum (ETH)</h2>
+      <p id="ethereum-price">Loading...</p>
+    </div>
+
+    <div class="crypto-card" id="bitcoin-card">
+      <h2>Bitcoin (BTC)</h2>
+      <p id="bitcoin-price">Loading...</p>
+    </div>
+
+    <div class="crypto-card" id="dogecoin-card">
+      <h2>Dogecoin (DOGE)</h2>
+      <p id="dogecoin-price">Loading...</p>
+    </div>
+  </div>
+
+  <script>
+    
+    async function fetchCryptoPrice(symbol) {
+      const response = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${symbol}&vs_currencies=usd`);
+      const data = await response.json();
+      console.log(data);
+      return data[symbol].usd;
+    };
+
+ 
+    async function updateCryptoPrice(symbol, elementId) {
+      const price = await fetchCryptoPrice(symbol);
+      document.getElementById(elementId).innerText = `$${price.toFixed(2)}`;
+    }
+
+  
+    setInterval(() => {
+      updateCryptoPrice('ethereum', 'ethereum-price');
+      updateCryptoPrice('bitcoin', 'bitcoin-price');
+      updateCryptoPrice('dogecoin', 'dogecoin-price');
+    }, 10000);
+  </script>
+
+</body>
+</html>

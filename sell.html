@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy</title>
+    <link rel="stylesheet" href="sell.css">
+
+</head>
+<body>
+    <div class="form">
+        <!-- <input class="form-input" type="text" name="name" id="name" placeholder="enter your name"> -->
+        <input class="form-input" type="email" name="r-name" id="r-name" placeholder="enter receiver's name">
+        <select id="selectcur">
+            <option value="Ethereum (ETH)">Ethereum (ETH)</option>
+            <option value="Bitcoin (BTC)">Bitcoin (BTC)</option>
+            <option value="Dogecoin (DOGE)">Dogecoin (DOGE)</option>
+        </select>
+        <input class="form-input" type="number" name="quantity" id="quantity" placeholder="enter quantity">
+        <button class="btn btn-dark" id="btn" onclick="sell()">SELL</button>
+    </div>
+    <script src="sell.js"></script>
+</body>
+</html>

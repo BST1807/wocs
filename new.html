@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new</title>
+    <!-- <link rel="stylesheet" href="registrationpage.css"> -->
+    <style>
+        body {
+        font-family: 'Roboto', sans-serif;
+        background-image: url('images/bg2.png'); 
+        background-size: cover;
+        background-position: center;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    .login {
+        background-color: rgba(255, 255, 255, 0.8); 
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        padding: 30px;
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .form-input {
+        width: 100%;
+        padding: 15px;
+        margin: 10px 0;
+        box-sizing: border-box;
+        border: 1px solid #6d9e7c; 
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    
+    .btn {
+        background-color: #6d9e7c; 
+        color: #fff;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background-color 0.3s ease-in-out;
+    }
+    
+    .btn-dark {
+        background-color: #3b3e42;
+    }
+    
+    .btn-dark:hover {
+        background-color: #1d2124;
+    }
+    
+    p {
+        margin: 15px 0;
+        color: #555;
+        font-size: 16px;
+    }
+    
+    select,
+    option {
+        width: 100%;
+        padding: 15px;
+        margin: 10px 0;
+        box-sizing: border-box;
+        border: 1px solid #6d9e7c;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    
+    #register {
+        background-color: #007bff;
+    }
+    
+    #register:hover {
+        background-color: #0056b3;
+    }
+    .input-box img{
+        width: 5%
+    }
+    /* .input-box{
+        width: 100%;
+        padding: 15px;
+        margin: 10px 0;
+        box-sizing: border-box;
+        border: 1px solid #6d9e7c; 
+        border-radius: 5px;
+        font-size: 16px;
+    } */
+    .form-inputs{
+        width: 93.8%;
+        padding: 15px;
+        margin: 10px 0;
+        box-sizing: border-box;
+        border: 1px solid #6d9e7c; 
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="login">
+        <div class="form">
+          <input class="form-input" type="name" name="name" id="name" placeholder="enter your name">
+          <input class="form-input" type="email" name="email" id="email" placeholder="enter your email">
+          <div class="input-box">
+            <input class="form-inputs" type="password" name="password" id="password" placeholder="enter your password">
+            <img src="images/eye-close.png" alt="" id="eyeicon">
+          </div>
+          
+          <select>
+            <option>Ethereum (ETH)</option>
+          </select>
+          <input class="form-input" type="number" name="quantity" id="quantity" placeholder="enter quantity" min="1">
+          <button class="btn btn-dark" id="register" onclick="myfunction()">Register</button>
+          <p>Existing User?</p>
+          <button class="btn btn-dark" id="login">Login</button>
+        </div>
+    </div>
+    <script src="register-to-login.js"></script>
+    <script src="registration.js"></script>
+    
+</body>
+</html>
+
